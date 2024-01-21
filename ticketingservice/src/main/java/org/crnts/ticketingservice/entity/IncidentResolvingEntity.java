@@ -2,6 +2,7 @@ package org.crnts.ticketingservice.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,11 +35,79 @@ public class IncidentResolvingEntity {
 	@Column(name="resolver_id")
 	private long resolverId;
 	@Column(name="status_code")
-	private long statusCode;
+	private String statusCode;
 	   @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	   @Column(name="response_time")
 	private String responseTime;
 	//fetch resolution time
+	//@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	   @Column(name="priority_id")
+	private int priorityId;
 	   
-	   @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-	private String priorityId;
+	   
+	   public void printMe()
+	   {
+		   System.out.println(incidentId+" \t"+resolverId+" \t"+statusCode);
+	   }
+
+
+	public long getResolvingId() {
+		return resolvingId;
+	}
+
+
+	public void setResolvingId(long resolvingId) {
+		this.resolvingId = resolvingId;
+	}
+
+
+	public long getIncidentId() {
+		return incidentId;
+	}
+
+
+	public void setIncidentId(long incidentId) {
+		this.incidentId = incidentId;
+	}
+
+
+	public long getResolverId() {
+		return resolverId;
+	}
+
+
+	public void setResolverId(long resolverId) {
+		this.resolverId = resolverId;
+	}
+
+
+	public String getStatusCode() {
+		return statusCode;
+	}
+
+
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
+	}
+
+
+	public String getResponseTime() {
+		return responseTime;
+	}
+
+
+	public void setResponseTime(String responseTime) {
+		this.responseTime = responseTime;
+	}
+
+
+	public int getPriorityId() {
+		return priorityId;
+	}
+
+
+	public void setPriorityId(int priorityId) {
+		this.priorityId = priorityId;
+	}
+	   
 }

@@ -1,0 +1,23 @@
+package org.crnts.ticketingservice.serviceimpl;
+
+import org.crnts.ticketingservice.entity.PriorityEntity;
+import org.crnts.ticketingservice.repository.PriorityRepository;
+import org.crnts.ticketingservice.service.PriorityService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+@Service
+public class PriorityServiceimpl implements PriorityService{
+	
+	@Autowired
+	PriorityRepository priorityRepository;
+
+	@Override
+	public PriorityEntity save(PriorityEntity priorityEntity) {
+		return priorityRepository.save(priorityEntity);
+		}
+
+
+}
