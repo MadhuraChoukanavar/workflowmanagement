@@ -36,7 +36,7 @@ public class IncidentResolvingController {
 		log.info("Saving incidentresolving {}", incidentResolving);
 		
 			System.out.println("entered controller");
-			incidentResolving.printMe();
+			System.out.println( incidentResolving.toString());
 	incidentResolvingService.save(incidentResolving);
 
 		ResponseEntity<IncidentResolvingEntity> responseEntity = new ResponseEntity<>(incidentResolving,

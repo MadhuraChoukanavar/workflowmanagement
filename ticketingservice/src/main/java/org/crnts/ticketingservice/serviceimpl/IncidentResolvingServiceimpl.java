@@ -19,7 +19,7 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 	public IncidentResolvingEntity save(IncidentResolvingEntity incidentResolvingEntity) {
 		System.out.println("hiiiii service impl");
 		System.out.println(incidentResolvingEntity);
-		incidentResolvingEntity.printMe();
+		System.out.println(incidentResolvingEntity.toString());
 		return incidentResolvingRepository.save(incidentResolvingEntity);
 
 	}
