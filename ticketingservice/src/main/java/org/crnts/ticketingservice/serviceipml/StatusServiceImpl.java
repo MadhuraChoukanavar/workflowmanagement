@@ -1,5 +1,7 @@
 package org.crnts.ticketingservice.serviceipml;
 
+import java.util.Optional;
+
 import org.crnts.ticketingservice.entity.StatusEntity;
 import org.crnts.ticketingservice.repository.StatusRepository;
 import org.crnts.ticketingservice.service.StatusService;
@@ -17,5 +19,24 @@ public class StatusServiceImpl implements StatusService {
 		statusRepository.save(statusEntity);
 
 	}
+	@Override
+	public StatusEntity get(String statusCode) {
+		return statusRepository.findById(statusCode).get();
+	}
+
+	@Override
+	public void update(StatusEntity statusEntity) {
+		Optional<StatusEntity>optional	=statusRepository.findById(statusEntity.getStatusCode());
+		if(optional.isPresent()) {
+			statusRepository.save(statusEntity);
+			System.out.println("update successfull");
+		}
+		else {
+			optional.orElseThrow();
+		}
+		
+	}
+
+	
 
 }
