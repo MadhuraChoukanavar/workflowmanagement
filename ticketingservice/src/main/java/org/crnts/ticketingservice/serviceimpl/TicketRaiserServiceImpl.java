@@ -1,4 +1,4 @@
-package org.crnts.ticketingservice.serviceipml;
+package org.crnts.ticketingservice.serviceimpl;
 
 import org.crnts.ticketingservice.entity.TicketRaiserEntity;
 import org.crnts.ticketingservice.repository.TicketRaiserRepository;

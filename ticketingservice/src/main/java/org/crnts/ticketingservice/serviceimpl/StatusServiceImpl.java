@@ -1,4 +1,4 @@
-package org.crnts.ticketingservice.serviceipml;
+package org.crnts.ticketingservice.serviceimpl;
 
 import java.util.Optional;
 
