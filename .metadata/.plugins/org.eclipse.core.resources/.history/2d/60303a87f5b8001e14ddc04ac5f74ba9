@@ -1,0 +1,5 @@
+package org.crnts.ticketingservice.exception;
+
+public class IncidentNotFoundException {
+
+}

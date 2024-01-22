@@ -1,0 +1,24 @@
+package org.crnts.ticketingservice.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+@RestController
+@RequestMapping("/ticket")
+public class IncidentResolvingController {
+	
+	@PostMapping
+	public IncidentResolvingEntity<Medicine> save(@RequestBody Medicine medicine) {
+		log.info("Saving patient {}", medicine);
+
+		medicineService.save(medicine);
+
+		ResponseEntity<Medicine> responseEntity = new ResponseEntity<>(medicine,
+				HttpStatus.CREATED);
+		return responseEntity;
+	}
+
+}

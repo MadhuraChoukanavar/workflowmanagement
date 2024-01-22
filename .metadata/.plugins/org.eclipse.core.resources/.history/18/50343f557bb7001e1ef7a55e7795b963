@@ -1,0 +1,5 @@
+package org.cnts.configuration;
+
+public class AdminServiceConiguration {
+
+}

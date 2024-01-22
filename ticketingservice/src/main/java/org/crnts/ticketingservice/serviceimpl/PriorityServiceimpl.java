@@ -19,5 +19,11 @@ public class PriorityServiceimpl implements PriorityService{
 		return priorityRepository.save(priorityEntity);
 		}
 
+	@Override
+	public PriorityEntity findById(int id) {
+		return priorityRepository.findById(id).get();
+		
+	}
+
 
 }

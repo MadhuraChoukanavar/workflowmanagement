@@ -1,0 +1,5 @@
+package org.crnts.ticketingservice.serviceimpl;
+
+public class IncidentResolvingServiceimpl {
+
+}

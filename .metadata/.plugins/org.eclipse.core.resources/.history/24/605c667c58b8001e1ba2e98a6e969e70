@@ -1,0 +1,28 @@
+package org.crnts.ticketingservice.entity;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
+@Table(name = "priority_details")
+public class PriorityEntity {
+	@Column(name="priority_id")
+	private int priorityId;
+	@Column(name="priority_name")
+	private String priorityName;
+	  @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	   @Column(name="resalution_time")
+	private String responseTime;
+
+}

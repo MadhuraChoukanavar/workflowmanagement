@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +47,25 @@ public class IncidentResolvingController {
 		return responseEntity;
 	}
 	
+	@PostMapping(path="/updatepriority/{newpriority}/{incidentId}")
+	
+	public ResponseEntity<Object> updatePriorty(@PathVariable int newpriority,@PathVariable long incidentId)
+	{
+		try
+		{
+			System.out.println(incidentId);
+			
+		incidentResolvingService.updatePriority(newpriority, incidentId);
+	
+		System.out.println(incidentId);
+		return new ResponseEntity<>(HttpStatus.OK);
+	
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 
 }

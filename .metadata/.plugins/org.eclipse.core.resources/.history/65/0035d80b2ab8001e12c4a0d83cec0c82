@@ -1,0 +1,13 @@
+package org.crnts.ticketingservice.serviceimpl;
+
+import org.crnts.ticketingservice.service.IncidentResolvingService;
+
+public class IncidentResolvingServiceimpl  implements IncidentResolvingService{
+
+	@Override
+	public IncidentResolvingService save(IncidentResolvingService incidentResolvingService) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

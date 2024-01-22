@@ -1,0 +1,5 @@
+package org.crnts.ticketingservice.controller;
+
+public class IncidentResolvingController {
+
+}

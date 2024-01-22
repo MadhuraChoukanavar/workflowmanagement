@@ -2,12 +2,14 @@ package org.crnts.ticketingservice.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,10 +43,15 @@ public class IncidentResolvingEntity {
 	private String responseTime;
 	//fetch resolution time
 	//@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-	   @Column(name="priority_id")
-	private int priorityId;
+//	   @Column(name="priority_id")
+//	private int priorityId;
+	   @OneToOne(cascade = CascadeType.ALL)
+	   @JoinColumn(name="priority_id",referencedColumnName = "priority_id")
+	   private PriorityEntity priorityEntity;
 	   
-	   
-	  
-	   
+//	   @OneToOne(fetch = FetchType.EAGER)
+//		@Cascade(CascadeType.ALL)
+//		@JoinColumn(name="adh_id" ,referencedColumnName="adh_id")
+//		EmpAdhar empAdh;
+//	   
 }

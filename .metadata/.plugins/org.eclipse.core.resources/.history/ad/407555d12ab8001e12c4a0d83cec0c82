@@ -1,0 +1,18 @@
+package org.crnts.ticketingservice.serviceimpl;
+
+import org.crnts.ticketingservice.repository.IncidentResolvingRepository;
+import org.crnts.ticketingservice.service.IncidentResolvingService;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class IncidentResolvingServiceimpl  implements IncidentResolvingService{
+
+	
+	@Autowired
+	IncidentResolvingRepository incidentResolvingRepository;
+	@Override
+	public IncidentResolvingService save(IncidentResolvingService incidentResolvingService) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -4,5 +4,7 @@ import org.crnts.ticketingservice.entity.PriorityEntity;
 
 public interface PriorityService {
 	PriorityEntity save(PriorityEntity priorityEntity);
+	PriorityEntity findById(int id);
+	
 
 }

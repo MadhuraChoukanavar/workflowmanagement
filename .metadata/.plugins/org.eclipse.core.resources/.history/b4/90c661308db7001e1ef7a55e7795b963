@@ -1,0 +1,6 @@
+package org.crnts.ticketingservice.bean;
+
+public class IncidentResolvingBean {
+
+	private int resolvingId;
+}

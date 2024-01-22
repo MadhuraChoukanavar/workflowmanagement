@@ -1,0 +1,5 @@
+package org.crnts.ticketingservice.config;
+
+public class JPAConfig {
+
+}
