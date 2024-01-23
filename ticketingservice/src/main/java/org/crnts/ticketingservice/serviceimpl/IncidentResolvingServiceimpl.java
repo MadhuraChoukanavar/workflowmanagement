@@ -32,6 +32,7 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 	public void updatePriority(int newpriority, long incidentId) {
 		Optional<IncidentResolvingEntity> optionalEntity = incidentResolvingRepository.findById(incidentId);
 
+
 		if (optionalEntity.isPresent()) {
 
 			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
@@ -41,6 +42,11 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 		} else {
 			throw new IncidentNotFoundException("incident not found");
 		}
+
+
+		
+
+		
 
 	}
 
