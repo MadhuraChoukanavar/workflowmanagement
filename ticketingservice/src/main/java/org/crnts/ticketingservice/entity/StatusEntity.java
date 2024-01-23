@@ -26,7 +26,7 @@ public class StatusEntity {
     
 	public StatusEntity() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 
