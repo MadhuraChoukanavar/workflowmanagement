@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 package org.crnts.ticketingservice.serviceimpl;
+=======
+ package org.crnts.ticketingservice.serviceimpl;
+>>>>>>> swathi
 
 import java.util.Optional;
 
 import org.crnts.ticketingservice.entity.StatusEntity;
+import org.crnts.ticketingservice.exceptions.StatusSaveException;
 import org.crnts.ticketingservice.repository.StatusRepository;
 import org.crnts.ticketingservice.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +20,11 @@ public class StatusServiceImpl implements StatusService {
 	private StatusRepository statusRepository;
 
 	@Override
-	public void save(StatusEntity statusEntity) {
+	public void save(StatusEntity statusEntity) throws StatusSaveException {
+	
+		 if (statusRepository.existsById(statusEntity.getStatusCode())) {
+		        throw new StatusSaveException("status code already exists"+ statusEntity.getStatusCode());
+		 }
 		statusRepository.save(statusEntity);
 
 	}
@@ -26,7 +35,7 @@ public class StatusServiceImpl implements StatusService {
 
 	@Override
 	public void update(StatusEntity statusEntity) {
-		Optional<StatusEntity>optional	=statusRepository.findById(statusEntity.getStatusCode());
+		Optional<StatusEntity>optional=statusRepository.findById(statusEntity.getStatusCode());
 		if(optional.isPresent()) {
 			statusRepository.save(statusEntity);
 			System.out.println("update successfull");

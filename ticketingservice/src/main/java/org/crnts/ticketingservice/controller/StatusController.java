@@ -1,9 +1,11 @@
 package org.crnts.ticketingservice.controller;
 
 import org.crnts.ticketingservice.entity.StatusEntity;
+import org.crnts.ticketingservice.exceptions.StatusSaveException;
 import org.crnts.ticketingservice.repository.StatusRepository;
 import org.crnts.ticketingservice.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +27,14 @@ public class StatusController {
 	private StatusService statusService;
     @PostMapping("/save1")
 	public ResponseEntity<StatusEntity> save(@RequestBody StatusEntity statusEntity) {
+    	
 
-    	statusService.save(statusEntity);
+    	try {
+			statusService.save(statusEntity);
+		} catch (StatusSaveException e) {
+			System.out.println("StatusCode already exists");
+			
+		}
 		ResponseEntity<StatusEntity> responseEntity1 = new ResponseEntity<>(statusEntity, HttpStatus.OK);
 		return responseEntity1 ;
 	}
