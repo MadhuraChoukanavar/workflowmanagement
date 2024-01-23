@@ -31,20 +31,17 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 	@Override
 	public void updatePriority(int newpriority, long incidentId) {
 		Optional<IncidentResolvingEntity> optionalEntity = incidentResolvingRepository.findById(incidentId);
-		
-		if(optionalEntity.isPresent()) {
-			
+
+		if (optionalEntity.isPresent()) {
+
 			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
-			PriorityEntity priorityEntity = incidentResolvingEntity.getPriorityEntity();
-			
+
 			incidentResolvingRepository.save(incidentResolvingEntity);
-			
-		}
-		else
-		{
+
+		} else {
 			throw new IncidentNotFoundException("incident not found");
 		}
-		
+
 	}
 
 }
