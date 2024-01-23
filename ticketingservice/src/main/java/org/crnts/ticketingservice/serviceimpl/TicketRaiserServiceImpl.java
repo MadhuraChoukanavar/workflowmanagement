@@ -12,8 +12,8 @@ public class TicketRaiserServiceImpl implements TicketRaiserService{
 	@Autowired
 	private TicketRaiserRepository ticketRaiserRepository;
 	
-//	@Autowired
-//	private RestTemplate restTemplate;
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@Override
 	public void save(TicketRaiserEntity ticketRaiserEntity) {

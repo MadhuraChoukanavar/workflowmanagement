@@ -1,11 +1,11 @@
 package org.crnts.ticketingservice.service;
 
 import org.crnts.ticketingservice.entity.StatusEntity;
-import org.crnts.ticketingservice.exceptions.StatusSaveException;
+//import org.crnts.ticketingservice.exceptions.StatusSaveException;
 
 public interface StatusService {
 
-	void save(StatusEntity statusEntity) throws StatusSaveException;
+	void save(StatusEntity statusEntity);
 
 	StatusEntity get(String statusCode);
 	

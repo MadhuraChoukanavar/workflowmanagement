@@ -1,5 +1,6 @@
 package org.crnts.ticketingservice.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,10 +39,12 @@ public class TicketRaiserEntity {
 	@Column(name = "priority_id")
 	private int priorityId;
 
-//	@Column(name = "status_code")
-//	private String statusCode;
-	@OneToOne
-	@JoinColumn(name = "status_code", referencedColumnName = "status_code")
-	private StatusEntity statusEntity;
+	@Column(name = "status_code")
+	private String statusCode;
+	
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "status_code", referencedColumnName = "status_code")
+//	private StatusEntity statusEntity;
 
 }

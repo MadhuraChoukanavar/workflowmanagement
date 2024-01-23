@@ -1,7 +1,7 @@
 package org.crnts.ticketingservice.controller;
 
 import org.crnts.ticketingservice.entity.StatusEntity;
-import org.crnts.ticketingservice.exceptions.StatusSaveException;
+import org.crnts.ticketingservice.exception.StatusAlreadyExistException;
 import org.crnts.ticketingservice.repository.StatusRepository;
 import org.crnts.ticketingservice.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class StatusController {
 
     	try {
 			statusService.save(statusEntity);
-		} catch (StatusSaveException e) {
+		} catch (StatusAlreadyExistException e) {
 			System.out.println("StatusCode already exists");
 			
 		}
