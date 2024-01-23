@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.crnts.adminservice.controller.DepartmentController;
 import org.crnts.adminservice.entity.DepartmentEntity;
+import org.crnts.adminservice.exception.DepartmentNotFoundException;
 import org.crnts.adminservice.repository.DepartmentRepository;
 import org.crnts.adminservice.service.DepartmentService;
 
@@ -41,14 +42,15 @@ public class DepartmentServiceImp implements DepartmentService {
 	}
 
 	@Override
-	public void update(DepartmentEntity departmentEntity) {
+	public void update(DepartmentEntity departmentEntity) throws DepartmentNotFoundException {
 	Optional<DepartmentEntity>optional	=departmentRepository.findById(departmentEntity.getDepartmentId());
 		if(optional.isPresent()) {
 			departmentRepository.save(departmentEntity);
 			System.out.println("update successfull");
 		}
 		else {
-			optional.orElseThrow();
+			
+					throw new  DepartmentNotFoundException("DepartmentNotFoundExceptionbyDepartmentId-" +departmentEntity.getDepartmentId()); 
 		}
 		
 	}

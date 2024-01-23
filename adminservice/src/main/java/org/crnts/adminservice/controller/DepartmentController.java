@@ -3,6 +3,7 @@ package org.crnts.adminservice.controller;
 import java.util.List;
 
 import org.crnts.adminservice.entity.DepartmentEntity;
+import org.crnts.adminservice.exception.DepartmentNotFoundException;
 import org.crnts.adminservice.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,11 +61,21 @@ public class DepartmentController {
 	}
 	@PutMapping
 	public ResponseEntity<DepartmentEntity>update(@RequestBody DepartmentEntity departmentEntity){
-		departmentService.update(departmentEntity);
-		log.info("Update department_details {}", departmentEntity);
-		ResponseEntity<DepartmentEntity>responseEntity = new ResponseEntity<DepartmentEntity>(departmentEntity,
-				HttpStatus.OK);
-		return responseEntity;
+		try {
+			departmentService.update(departmentEntity);
+			log.info("Update department_details {}", departmentEntity);
+			ResponseEntity<DepartmentEntity>responseEntity = new ResponseEntity<DepartmentEntity>(departmentEntity,
+					HttpStatus.OK);
+			return responseEntity;
+		}catch(DepartmentNotFoundException e) {
+			System.out.println(e.getMessage());
+			ResponseEntity<DepartmentEntity>responseEntity = new ResponseEntity<DepartmentEntity>(departmentEntity,
+					HttpStatus.NOT_FOUND);
+		}
+		return null;
+	
+		
+		
 		
 	}
 	@DeleteMapping(path = "/{departmentId}")
