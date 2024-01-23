@@ -52,63 +52,6 @@ public class DepartmentIssueEntity {
 	
 
 	
-
-	
-	public long getDepartmentId() {
-		return departmentId;
-	}
-
-
-
-	public void setDepartmentId(long departmentId) {
-		this.departmentId = departmentId;
-	}
-
-
-
-	
-	
-
-	public DepartmentIssueEntity(long issueId, String issueName, long departmentId) {
-		super();
-		this.issueId = issueId;
-		this.issueName = issueName;
-		this.departmentId = departmentId;
-	}
-
-
-
-	public DepartmentIssueEntity() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-	public long getIssueId() {
-		return issueId;
-	}
-
-	public void setIssueId(long issueId) {
-		this.issueId = issueId;
-	}
-
-	public String getIssueName() {
-		return issueName;
-	}
-
-	public void setIssueName(String issueName) {
-		this.issueName = issueName;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "DepartmentIssueEntity [issueId=" + issueId + ", issueName=" + issueName + ", departmentId="
-				+ departmentId + "]";
-	}
-
 	
 
 	
