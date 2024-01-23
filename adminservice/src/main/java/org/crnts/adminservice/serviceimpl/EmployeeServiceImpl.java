@@ -2,6 +2,7 @@ package org.crnts.adminservice.serviceimpl;
 
 import org.crnts.adminservice.bean.EmployeeBean;
 import org.crnts.adminservice.entity.EmployeeEntity;
+import org.crnts.adminservice.exception.EmployeeNotFoundException;
 import org.crnts.adminservice.repository.EmployeeRepository;
 import org.crnts.adminservice.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void updateEmplyee( EmployeeEntity employeeEntity,Long id) {
-		repository.findById(id).orElse(null);
-		repository.save(employeeEntity);
+	public void updateEmplyeeDetails( EmployeeEntity updatedEmployee,Long id) {
+		EmployeeEntity existingEmployee = repository.findById(id)
+	            .orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
+
+	    existingEmployee.setEmployeeName(updatedEmployee.getEmployeeName());
+	    existingEmployee.setEmployeeEmail(updatedEmployee.getEmployeeEmail());
+	    existingEmployee.setEmployeeDesignation(updatedEmployee.getEmployeeDesignation());
+	    existingEmployee.setEmployeePassword(updatedEmployee.getEmployeePassword());
+	    existingEmployee.setEmployeePhonenumber(updatedEmployee.getEmployeePhonenumber());
+	    repository.save(existingEmployee);
 	}
 
 	// conversion entity to bean and visa versa

@@ -1,16 +1,16 @@
 package org.crnts.adminservice.controller;
 
-import org.crnts.adminservice.bean.EmployeeBean;
 import org.crnts.adminservice.entity.EmployeeEntity;
 import org.crnts.adminservice.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,11 +30,11 @@ public class EmployeeController {
 		return new ResponseEntity<>(employeeEntity, HttpStatus.CREATED);
 	}
 
-	@PutMapping(path = "/updateEmployee")
-	public EmployeeEntity update(@RequestBody EmployeeEntity employeeEntity) {
-		service.saveEmployee( employeeEntity );
+	@PostMapping(path = "/updateEmployee/{id}")
+	public ResponseEntity<EmployeeEntity> update(@RequestBody EmployeeEntity employeeEntity, @PathVariable Long id) {
+		service.updateEmplyeeDetails(employeeEntity, id);
 		log.info("Employee Updated");
-		return employeeEntity;
+		return new ResponseEntity<>(employeeEntity, HttpStatus.OK);
 	}
 
 }

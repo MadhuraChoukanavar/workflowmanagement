@@ -1,6 +1,5 @@
 package org.crnts.adminservice.service;
 
-import org.crnts.adminservice.bean.EmployeeBean;
 import org.crnts.adminservice.entity.EmployeeEntity;
 
 public interface EmployeeService {
@@ -9,5 +8,5 @@ public interface EmployeeService {
 
 	public EmployeeEntity getById(Long Id);
 
-	public void updateEmplyee( EmployeeEntity employeeEntity, Long id);
+	public void updateEmplyeeDetails( EmployeeEntity updateEmplyee, Long id);
 }
