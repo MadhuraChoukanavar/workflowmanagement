@@ -1,18 +1,24 @@
-package org.crnts.ticketingservice.config;
+package org.crnts.adminservice.config;
 
 import org.springframework.context.annotation.Bean;
-
 import org.springframework.context.annotation.Configuration;
+<<<<<<< HEAD
+=======
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+>>>>>>> master
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-
 @Configuration
-public class TicketingConfig {
-	
+public class AdminConfig {
+<<<<<<< HEAD
 	@Bean
-	WebMvcConfigurer mvcConfigurer() {
+=======
+	@Bean 
+>>>>>>> master
+	public WebMvcConfigurer mvcConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
@@ -22,15 +28,8 @@ public class TicketingConfig {
 		};
 	}
 
-	
 	@Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-	
-
-	
-
-
-
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 }
