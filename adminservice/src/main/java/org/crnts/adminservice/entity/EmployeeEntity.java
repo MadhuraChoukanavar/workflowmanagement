@@ -1,16 +1,24 @@
 package org.crnts.adminservice.entity;
 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -33,8 +41,9 @@ public class EmployeeEntity {
 	@Column(name="employee_phno")
 	private Long employeePhonenumber;
 	
-//	@Column(name="employee_name")
-//	private Department departmentId;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "department_id")
+	private DepartmentEntity employeeDepartmentId;
 	
 	@Column(name="employee_password")
 	private String employeePassword;
@@ -42,54 +51,5 @@ public class EmployeeEntity {
 	@Column(name="employee_designation")
 	private String employeeDesignation;
 
-	public Long getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public String getEmployeeName() {
-		return employeeName;
-	}
-
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
-
-	public String getEmployeeEmail() {
-		return employeeEmail;
-	}
-
-	public void setEmployeeEmail(String employeeEmail) {
-		this.employeeEmail = employeeEmail;
-	}
-
-	public Long getEmployeePhonenumber() {
-		return employeePhonenumber;
-	}
-
-	public void setEmployeePhonenumber(Long employeePhonenumber) {
-		this.employeePhonenumber = employeePhonenumber;
-	}
-
-	public String getEmployeePassword() {
-		return employeePassword;
-	}
-
-	public void setEmployeePassword(String employeePassword) {
-		this.employeePassword = employeePassword;
-	}
-
-	public String getEmployeeDesignation() {
-		return employeeDesignation;
-	}
-
-	public void setEmployeeDesignation(String employeeDesignation) {
-		this.employeeDesignation = employeeDesignation;
-	}
 	
-	
-
 }

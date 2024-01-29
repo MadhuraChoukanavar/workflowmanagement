@@ -1,7 +1,18 @@
 package org.crnts.adminservice.bean;
 
-import lombok.Builder;
+import org.crnts.adminservice.entity.DepartmentEntity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Builder
 public class EmployeeBean {
 
@@ -9,71 +20,10 @@ public class EmployeeBean {
 	private String employeeName;
 	private String employeeEmail;
 	private Long employeePhonenumber;
-//	private Department departmentId;
+	private DepartmentBean employeeDepartmentId;
 	private String employeePassword;
 	private String employeeDesignation;
-
-
-	public Long getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public String getEmployeeName() {
-		return employeeName;
-	}
-
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
-
-	public String getEmployeeEmail() {
-		return employeeEmail;
-	}
-
-	public void setEmployeeEmail(String employeeEmail) {
-		this.employeeEmail = employeeEmail;
-	}
-
-	public Long getEmployeePhonenumber() {
-		return employeePhonenumber;
-	}
-
-	public void setEmployeePhonenumber(Long employeePhonenumber) {
-		this.employeePhonenumber = employeePhonenumber;
-	}
-
-	public String getEmployeePassword() {
-		return employeePassword;
-	}
-
-	public void setEmployeePassword(String employeePassword) {
-		this.employeePassword = employeePassword;
-	}
-
-	public String getEmployeeDesignation() {
-		return employeeDesignation;
-	}
-
-	public void setEmployeeDesignation(String employeeDesignation) {
-		this.employeeDesignation = employeeDesignation;
-	}
 	
-	public EmployeeBean() {
-	}
-
-	public EmployeeBean(Long employeeId, String employeeName, String employeeEmail, Long employeePhonenumber,
-			String employeePassword, String employeeDesignation) {
-		super();
-		this.employeeId = employeeId;
-		this.employeeName = employeeName;
-		this.employeeEmail = employeeEmail;
-		this.employeePhonenumber = employeePhonenumber;
-		this.employeePassword = employeePassword;
-		this.employeeDesignation = employeeDesignation;
-	}
+	
 
 }
