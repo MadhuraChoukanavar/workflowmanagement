@@ -13,12 +13,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Setter
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "incident_details")
 public class TicketRaiserEntity {
 
@@ -47,4 +53,10 @@ public class TicketRaiserEntity {
 //	@JoinColumn(name = "status_code", referencedColumnName = "status_code")
 //	private StatusEntity statusEntity;
 
+<<<<<<< HEAD
+	
+	
+	
+=======
+>>>>>>> master
 }

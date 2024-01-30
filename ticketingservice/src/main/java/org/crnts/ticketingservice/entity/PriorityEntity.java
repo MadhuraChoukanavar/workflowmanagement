@@ -12,7 +12,9 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
@@ -20,7 +22,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Builder
-@Data
+@Getter
+@Setter
 @Table(name = "priority_details")
 public class PriorityEntity {
 	@Id
@@ -34,30 +37,8 @@ public class PriorityEntity {
 	  @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	   @Column(name="resolution_time")
 	private String resolutionTime;
-//
-//	public int getPriorityId() {
-//		return priorityId;
-//	}
-//
-//	public void setPriorityId(int priorityId) {
-//		this.priorityId = priorityId;
-//	}
-//
-//	public String getPriorityName() {
-//		return priorityName;
-//	}
-//
-//	public void setPriorityName(String priorityName) {
-//		this.priorityName = priorityName;
-//	}
-//
-//	public String getResponseTime() {
-//		return resolutionTime;
-//	}
-//
-//	public void setResponseTime(String resolutionTime) {
-//		this.resolutionTime = resolutionTime;
-//	}
-	  
+
+
+	
 
 }
