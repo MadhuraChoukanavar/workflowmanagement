@@ -5,6 +5,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+<<<<<<< HEAD
+
+@EnableJpaRepositories(basePackages = { "org.crnts.adminservice" })
+@EnableTransactionManagement
+public class JPAConfig {
+	
+
+=======
 //<<<<<<< HEAD
 //=======
 //<<<<<<< HEAD
@@ -12,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class JPAConfig {
 
+>>>>>>> master
 }
 //=======
 //<<<<<<< HEAD

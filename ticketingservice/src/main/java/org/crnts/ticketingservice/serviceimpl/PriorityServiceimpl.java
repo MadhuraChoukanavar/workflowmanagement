@@ -1,6 +1,7 @@
 package org.crnts.ticketingservice.serviceimpl;
 
 import org.crnts.ticketingservice.entity.PriorityEntity;
+import org.crnts.ticketingservice.exception.PriorityNotFoundException;
 import org.crnts.ticketingservice.repository.PriorityRepository;
 import org.crnts.ticketingservice.service.PriorityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class PriorityServiceimpl implements PriorityService{
 		return priorityRepository.findById(id).get();
 		
 	}
+
 
 
 }
