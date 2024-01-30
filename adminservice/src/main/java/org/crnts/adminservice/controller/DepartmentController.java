@@ -44,7 +44,7 @@ public class DepartmentController {
 	public ResponseEntity<DepartmentEntity> get(@PathVariable Long departmentId) {
 		log.info("Fetching department_details {}", departmentId);
 
-		DepartmentEntity departmentEntity = departmentService.get(departmentId);
+		DepartmentEntity departmentEntity = departmentService.getDepartmentById(departmentId);
 
 		ResponseEntity<DepartmentEntity> responseEntity = new ResponseEntity<>(departmentEntity,
 				HttpStatus.OK);
