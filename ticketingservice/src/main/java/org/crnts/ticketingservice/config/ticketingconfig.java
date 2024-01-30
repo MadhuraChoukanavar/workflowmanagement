@@ -1,35 +1,19 @@
-package org.crnts.adminservice.config;
+package org.crnts.ticketingservice.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 
-<<<<<<< HEAD
 import org.springframework.context.annotation.Configuration;
-<<<<<<< HEAD
-
-=======
->>>>>>> master
-=======
-
-import org.springframework.context.annotation.Configuration;
-
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+
 @Configuration
-public class AdminConfig {
-<<<<<<< HEAD
+public class TicketingConfig {
+	
 	@Bean
-=======
-
-	@Bean 
-<<<<<<< HEAD
->>>>>>> master
-=======
-
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
-	public WebMvcConfigurer mvcConfigurer() {
+	WebMvcConfigurer mvcConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
@@ -39,8 +23,19 @@ public class AdminConfig {
 		};
 	}
 
+	
 	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+	
+	
+	public  ModelMapper modelMapper() {
+		return new ModelMapper();
 	}
+
+	
+
+
+
 }

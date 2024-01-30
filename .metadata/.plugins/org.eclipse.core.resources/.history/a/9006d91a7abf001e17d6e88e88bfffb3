@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 @EnableJpaRepositories(basePackages = { "org.crnts.adminservice" })
 @EnableTransactionManagement
@@ -17,18 +16,24 @@ public class JPAConfig {
 //<<<<<<< HEAD
 //=======
 //<<<<<<< HEAD
-=======
-
-
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 @EnableJpaRepositories(basePackages = { "org.crnts.adminservice" })
 @EnableTransactionManagement
 public class JPAConfig {
 
-<<<<<<< HEAD
 >>>>>>> master
-=======
-
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 }
-
+//=======
+//<<<<<<< HEAD
+//@EnableJpaRepositories(basePackages = { "org.crnts.adminservice.bean","org.crnts.adminservice.repository" })
+//@EnableTransactionManagement
+//public class JPAConfig {
+//	
+//=======
+//>>>>>>> 9d687de0c72751f053a8c9de180ae79bb8ce3e02
+//@EnableJpaRepositories(basePackages = { "org.crnts.adminservice" })
+//@EnableTransactionManagement
+//public class JPAConfig {
+//
+//
+//>>>>>>> master
+//}

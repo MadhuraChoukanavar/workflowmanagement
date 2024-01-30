@@ -33,19 +33,24 @@ public class StatusEntity {
 	
     
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 	public StatusEntity() {
 		super();
 		
 	}
-=======
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 
+
+	public StatusEntity(String statusCode, String statusName) {
+		super();
+		this.statusCode = statusCode;
+		this.statusName = statusName;
+	}
 	
 
+	public String getStatusCode() {
+		return statusCode;
+	}
 
-<<<<<<< HEAD
 	public void setStatusCode(String statusCode) {
 		this.statusCode = statusCode;
 	}
@@ -59,7 +64,5 @@ public class StatusEntity {
 	}
 >>>>>>> master
 	
-=======
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 
 }
