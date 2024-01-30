@@ -25,7 +25,7 @@ public class EmployeeController {
 
 	@PostMapping("/saveEmployee")
 	public ResponseEntity<EmployeeEntity> saveEmployee(@RequestBody EmployeeEntity employeeEntity) {
-		log.info("Saving Employee: {}", employeeEntity);
+//		log.info("Saving Employee: {}", employeeEntity);
 		service.saveEmployee(employeeEntity);
 		return new ResponseEntity<>(employeeEntity, HttpStatus.CREATED);
 	}
@@ -33,7 +33,7 @@ public class EmployeeController {
 	@PostMapping(path = "/updateEmployee/{id}")
 	public ResponseEntity<EmployeeEntity> update(@RequestBody EmployeeEntity employeeEntity, @PathVariable Long id) {
 		service.updateEmplyeeDetails(employeeEntity, id);
-		log.info("Employee Updated");
+//		log.info("Employee Updated");
 		return new ResponseEntity<>(employeeEntity, HttpStatus.OK);
 	}
 

@@ -1,10 +1,7 @@
 package org.crnts.adminservice.entity;
 
-import org.hibernate.annotations.ForeignKey;
-import org.hibernate.validator.constraints.UniqueElements;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
@@ -15,7 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -48,46 +46,6 @@ public class DepartmentIssueEntity {
 //	@JsonBackReference("departmentId")
 //	private DepartmentEntity departmentId;
 
-	public long getDepartmentId() {
-		return departmentId;
-	}
-
-	public void setDepartmentId(long departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public DepartmentIssueEntity(long issueId, String issueName, long departmentId) {
-		super();
-		this.issueId = issueId;
-		this.issueName = issueName;
-		this.departmentId = departmentId;
-	}
-
-	public DepartmentIssueEntity() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public long getIssueId() {
-		return issueId;
-	}
-
-	public void setIssueId(long issueId) {
-		this.issueId = issueId;
-	}
-
-	public String getIssueName() {
-		return issueName;
-	}
-
-	public void setIssueName(String issueName) {
-		this.issueName = issueName;
-	}
-
-	@Override
-	public String toString() {
-		return "DepartmentIssueEntity [issueId=" + issueId + ", issueName=" + issueName + ", departmentId="
-				+ departmentId + "]";
-	}
+	
 
 }

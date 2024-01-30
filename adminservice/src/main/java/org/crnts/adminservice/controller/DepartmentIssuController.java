@@ -2,10 +2,14 @@ package org.crnts.adminservice.controller;
 
 import java.util.List;
 
+import org.crnts.adminservice.bean.DepartmentIssueBean;
 import org.crnts.adminservice.entity.DepartmentIssueEntity;
 import org.crnts.adminservice.exception.SaveUnqueIssue;
 import org.crnts.adminservice.repository.DepartmentIssuRepository;
 import org.crnts.adminservice.service.DepartmentIssueService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -24,15 +28,19 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/IssueType")
 public class DepartmentIssuController {
-
+	private static Logger log = LoggerFactory.getLogger(DepartmentIssuController.class);
 	@Autowired
 	private DepartmentIssueService issueService;
 	@Autowired
 	private DepartmentIssuRepository departmentIssuRepository;
 
 	@PostMapping("/save")
-	public ResponseEntity<DepartmentIssueEntity> save(@RequestBody DepartmentIssueEntity departmentIssueEntity) {
-//	log.info("Saving patient {}", patient);
+	public ResponseEntity<DepartmentIssueEntity> save(@RequestBody DepartmentIssueBean departmentIssueBean) {
+	log.info("Saving patient {}", departmentIssueBean);
+	DepartmentIssueEntity departmentIssueEntity=new DepartmentIssueEntity();
+	departmentIssueEntity.setIssueId(departmentIssueBean.getIssueId());
+	departmentIssueEntity.setIssueName(departmentIssueBean.getIssueName());
+	departmentIssueEntity.setDepartmentId(departmentIssueBean.getDepartmentId());
 try {
 		issueService.saveIssueType(departmentIssueEntity);
 		ResponseEntity<DepartmentIssueEntity> responseEntity = new ResponseEntity<>(departmentIssueEntity,
@@ -46,6 +54,7 @@ catch (Exception e) {
    return new  ResponseEntity<>(HttpStatus.FOUND);
 }
 	}
+
 
 
 	@GetMapping("/getAll")

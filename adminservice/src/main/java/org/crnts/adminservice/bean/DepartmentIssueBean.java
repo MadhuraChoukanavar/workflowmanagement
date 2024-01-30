@@ -7,9 +7,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class DepartmentBean {
+public class DepartmentIssueBean {
+	private long issueId;
+	private String issueName;
 	private long departmentId;
-	private String departmentName;
-
-
+	
+	
 }

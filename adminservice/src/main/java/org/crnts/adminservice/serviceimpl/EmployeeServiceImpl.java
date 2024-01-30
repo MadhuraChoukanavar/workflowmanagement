@@ -25,7 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void saveEmployee(EmployeeEntity employeeEntity) {
 		repository.save(employeeEntity);
-		log.info("Employee Saved : ", employeeEntity);
+//		log.info("Employee Saved : ", employeeEntity);
 	}
 
 	@Override
