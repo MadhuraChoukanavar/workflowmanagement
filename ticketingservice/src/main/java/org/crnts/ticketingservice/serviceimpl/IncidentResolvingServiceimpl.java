@@ -101,13 +101,9 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 		if (optionalEntity.isPresent()) {
 
 			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
-<<<<<<< HEAD
 			// incidentResolvingEntity.setPriorityEntity(newpriority);
 
-=======
 
-			
->>>>>>> master
 			incidentResolvingRepository.save(incidentResolvingEntity);
 
 		} else {

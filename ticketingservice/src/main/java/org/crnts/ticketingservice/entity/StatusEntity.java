@@ -32,37 +32,9 @@ public class StatusEntity {
 	
 	
     
-<<<<<<< HEAD
-=======
-	public StatusEntity() {
-		super();
-		
-	}
 
-
-	public StatusEntity(String statusCode, String statusName) {
-		super();
-		this.statusCode = statusCode;
-		this.statusName = statusName;
-	}
 	
 
-	public String getStatusCode() {
-		return statusCode;
-	}
 
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
-	}
-
-	public String getStatusName() {
-		return statusName;
-	}
-
-	public void setStatusName(String statusName) {
-		this.statusName = statusName;
-	}
->>>>>>> master
-	
 
 }
