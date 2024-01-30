@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 public class StatusBean {
 
-	private int statusId;
+	private String statusCode;
 	private String statusName;
 
 }

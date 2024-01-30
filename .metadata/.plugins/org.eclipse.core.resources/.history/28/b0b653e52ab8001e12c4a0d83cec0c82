@@ -1,8 +1,0 @@
-package org.crnts.ticketingservice.service;
-
-public interface IncidentResolvingService {
-	
-	
-	IncidentResolvingEntity	save (IncidentResolvingEntity incidentResolvingEntity);
-
-}

@@ -1,5 +1,0 @@
-package org.crnts.ticketingservice.repository;
-
-public interface PriorityRepository {
-
-}

@@ -1,0 +1,14 @@
+package org.crnts.ticketingservice.repository;
+
+import java.util.List;
+import org.crnts.ticketingservice.entity.IncidentResolvingEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+
+public interface IncidentResolvingRepository extends JpaRepository<IncidentResolvingEntity, Long> {
+
+	@Query(value = "select * from incident_resolving_details where status_code='o'", nativeQuery = true)
+	List<IncidentResolvingEntity> getOpenIncident;
+
+}

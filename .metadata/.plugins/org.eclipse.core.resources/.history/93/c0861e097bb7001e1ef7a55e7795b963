@@ -1,5 +1,0 @@
-package org.cnts.configuration;
-
-public class JpaConfiguration {
-
-}

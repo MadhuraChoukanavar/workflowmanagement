@@ -1,7 +1,0 @@
-package org.crnts.ticketingservice.serviceimpl;
-
-import org.crnts.ticketingservice.service.IncidentResolvingService;
-
-public class IncidentResolvingServiceimpl  implements IncidentResolvingService{
-
-}

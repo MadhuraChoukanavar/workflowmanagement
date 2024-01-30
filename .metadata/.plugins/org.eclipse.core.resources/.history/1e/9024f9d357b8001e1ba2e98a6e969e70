@@ -1,5 +1,0 @@
-package org.crnts.ticketingservice.entity;
-@En
-public class PriorityEntity {
-
-}
