@@ -10,5 +10,7 @@ public interface IncidentResolvingRepository extends JpaRepository<IncidentResol
 
 	@Query(value = "select * from incident_resolving_details where status_code='o'", nativeQuery = true)
 	List<IncidentResolvingEntity> getOpenIncident();
-
+	
+	
+	
 }
