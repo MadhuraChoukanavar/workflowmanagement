@@ -40,23 +40,4 @@ public class DepartmentIssueEntity {
 	
 	@Column(name = "department_id")
 	private long departmentId;
-<<<<<<< HEAD
-	
-//	@ManyToOne(targetEntity =DepartmentEntity.class)
-//	@JoinColumn(name = "departmentId")
-//	@JsonBackReference("departmentId")
-//	private DepartmentEntity departmentId;
-	
-	
-
-	
-
-	
-
-
-	
-
-	
-=======
->>>>>>> master
 }
