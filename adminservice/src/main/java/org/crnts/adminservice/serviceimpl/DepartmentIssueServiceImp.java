@@ -3,6 +3,7 @@ package org.crnts.adminservice.serviceimpl;
 
 import java.util.List;
 
+import org.crnts.adminservice.entity.DepartmentEntity;
 import org.crnts.adminservice.entity.DepartmentIssueEntity;
 import org.crnts.adminservice.exception.SaveUnqueIssue;
 import org.crnts.adminservice.repository.DepartmentIssuRepository;
@@ -52,6 +53,7 @@ public void deleteAll() {
 //	
 //	return departmentIssuRepository.findByName(issueName);
 //}
+
 
 
 

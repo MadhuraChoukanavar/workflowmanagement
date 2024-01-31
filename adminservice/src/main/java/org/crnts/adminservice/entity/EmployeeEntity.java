@@ -22,6 +22,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Builder
+
+@Setter
+@Getter
 @Entity
 @Getter
 @Setter

@@ -2,7 +2,11 @@ package org.crnts.adminservice.controller;
 
 import java.util.List;
 
+
+import org.crnts.adminservice.entity.DepartmentEntity;
+
 import org.crnts.adminservice.bean.DepartmentIssueBean;
+
 import org.crnts.adminservice.entity.DepartmentIssueEntity;
 import org.crnts.adminservice.exception.SaveUnqueIssue;
 import org.crnts.adminservice.repository.DepartmentIssuRepository;
@@ -28,11 +32,35 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/IssueType")
 public class DepartmentIssuController {
+
+@Autowired
+private DepartmentIssueService issueService;
+
+@PostMapping("/save")
+public ResponseEntity<DepartmentIssueEntity> save(@RequestBody DepartmentIssueEntity departmentIssueEntity) {
+	log.info("Saving department {}", departmentIssueEntity);
+		issueService.saveIssueType(departmentIssueEntity);
+		System.out.println(departmentIssueEntity);
+	ResponseEntity<DepartmentIssueEntity> responseEntity = new ResponseEntity<>(departmentIssueEntity,
+			HttpStatus.CREATED);
+	System.out.println("Data inserted");
+	return responseEntity;
+}
+@GetMapping("/getAll")
+public ResponseEntity<List<DepartmentIssueEntity>>getAll(){
+	List<DepartmentIssueEntity> departmentIssueEntity= issueService.getAll();
+	log.info("Fetching department_details {}", departmentIssueEntity);
+	System.out.println("Fetching department_details { "+departmentIssueEntity+" }");
+	ResponseEntity<List<DepartmentIssueEntity>> responseEntity = new ResponseEntity<List<DepartmentIssueEntity>>(departmentIssueEntity,
+			HttpStatus.OK);
+	return responseEntity;
+
 	private static Logger log = LoggerFactory.getLogger(DepartmentIssuController.class);
 	@Autowired
 	private DepartmentIssueService issueService;
 	@Autowired
 	private DepartmentIssuRepository departmentIssuRepository;
+
 
 	@PostMapping("/save")
 	public ResponseEntity<DepartmentIssueEntity> save(@RequestBody DepartmentIssueBean departmentIssueBean) {

@@ -1,19 +1,27 @@
 package org.crnts.adminservice.entity;
 
 
+import jakarta.persistence.CascadeType;
+
+
 
 
 import jakarta.annotation.Generated;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+
+
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.SecondaryTable;
+
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,7 +43,15 @@ public class DepartmentIssueEntity {
 	@Column(name = "issue_type_name")
 	private String issueName;
 
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "department_id",referencedColumnName = "department_id")
+	private DepartmentEntity departmentEntity;
+
+}
+
 	@Column(name = "department_id")
 	private long departmentId;
 
 }
+

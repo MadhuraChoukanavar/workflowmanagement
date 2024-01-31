@@ -4,11 +4,17 @@ import java.util.List;
 
 import org.crnts.adminservice.bean.DepartmentBean;
 import org.crnts.adminservice.bean.EmployeeBean;
+
+import org.crnts.adminservice.controller.EmployeeController;
+
 import org.crnts.adminservice.entity.DepartmentEntity;
+
 import org.crnts.adminservice.entity.EmployeeEntity;
 import org.crnts.adminservice.exception.EmployeeNotFoundException;
 import org.crnts.adminservice.repository.EmployeeRepository;
 import org.crnts.adminservice.service.EmployeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+	private static Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
 	@Autowired(required = true)
 	private EmployeeRepository employeeRepository;
@@ -60,8 +67,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
+
+	public void updateEmplyeeDetails(EmployeeEntity updatedEmployee, Long id) {
+		EmployeeEntity existingEmployee = repository.findById(id)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
+
+		existingEmployee.setEmployeeName(updatedEmployee.getEmployeeName());
+		existingEmployee.setEmployeeEmail(updatedEmployee.getEmployeeEmail());
+		existingEmployee.setEmployeeDesignation(updatedEmployee.getEmployeeDesignation());
+		existingEmployee.setEmployeePassword(updatedEmployee.getEmployeePassword());
+		existingEmployee.setEmployeePhonenumber(updatedEmployee.getEmployeePhonenumber());
+		repository.save(existingEmployee);
+
 	public List<EmployeeEntity> getEmployeesByDepartment(DepartmentEntity department) {
 		return employeeRepository.findByEmployeeDepartmentId(department);
+
 	}
 
 	// conversion entity to bean and visa versa
