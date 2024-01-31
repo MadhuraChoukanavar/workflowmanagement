@@ -16,39 +16,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-<<<<<<< HEAD
-
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-=======
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
->>>>>>> master
 @Entity
 @Table(name = "department_details")
 public class DepartmentEntity {
-	
+
 	@Id
 	@Column(name = "department_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
- private long departmentId;
-	@Column(name = "department_name")
- private String departmentName;
-	
-=======
 	private long departmentId;
->>>>>>> master
-	
+
 	@Column(name = "department_name")
 	private String departmentName;
 
-	@OneToMany(mappedBy = "employeeDepartmentId" ,cascade = CascadeType.ALL)
-    private List<EmployeeEntity> employees;
+	@OneToMany(mappedBy = "employeeDepartmentId", cascade = CascadeType.ALL)
+	private List<EmployeeEntity> employees;
 }

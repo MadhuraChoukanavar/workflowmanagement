@@ -97,19 +97,6 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 	@Override
 	public void updatePriority(int newpriority, long incidentId) {
 		Optional<IncidentResolvingEntity> optionalEntity = incidentResolvingRepository.findById(incidentId);
-<<<<<<< HEAD
-
-		if (optionalEntity.isPresent()) {
-
-			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
-<<<<<<< HEAD
-			// incidentResolvingEntity.setPriorityEntity(newpriority);
-
-=======
-
-			
->>>>>>> master
-=======
 
 		if (optionalEntity.isPresent()) {
 
@@ -117,7 +104,6 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 			// incidentResolvingEntity.setPriorityEntity(newpriority);
 
 
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 			incidentResolvingRepository.save(incidentResolvingEntity);
 
 		} else {
@@ -200,8 +186,8 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 	public List<IncidentResolvingBean> getAllOpenEntity() {
 		List<IncidentResolvingEntity> openIncident = incidentResolvingRepository.getOpenIncident();
 
-		List<IncidentResolvingBean> collect = openIncident.stream()
-				.map((entity) -> modelMapper.map(entity, IncidentResolvingBean.class)).collect(Collectors.toList());
+		List<IncidentResolvingBean> collect = openIncident.stream().
+				map((entity) -> modelMapper.map(entity, IncidentResolvingBean.class)).collect(Collectors.toList());
 		return collect;
 	}
 

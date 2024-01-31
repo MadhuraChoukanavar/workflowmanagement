@@ -29,12 +29,7 @@ if(issueEntity1==null) {
 else {
 	throw new SaveUnqueIssue("Issue Name already Exist");
 }
-//if(IssueName.isEmpty()) {
-//
-//}
-//else {
 
-//}
 }
 @Override
 public List<DepartmentIssueEntity> getAll() {

@@ -27,11 +27,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-<<<<<<< HEAD
-	public void saveEmployee(EmployeeEntity employeeEntity) {
-		repository.save(employeeEntity);
-//		log.info("Employee Saved : ", employeeEntity);
-=======
+	
+
 	public EmployeeEntity saveEmployee(EmployeeBean employeeBean) {
 		
 		// Convert EmployeeBean to EmployeeEntity
@@ -41,7 +38,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeEntity = employeeRepository.save(employeeEntity);
 
         return employeeEntity;
->>>>>>> master
 	}
 
 	@Override
