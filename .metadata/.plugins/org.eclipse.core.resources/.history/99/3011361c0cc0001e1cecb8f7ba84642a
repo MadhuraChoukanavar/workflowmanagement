@@ -121,7 +121,6 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 		} else {
 			throw new IncidentNotFoundException("incident not found");
 		}
-		}
 
 	}
 

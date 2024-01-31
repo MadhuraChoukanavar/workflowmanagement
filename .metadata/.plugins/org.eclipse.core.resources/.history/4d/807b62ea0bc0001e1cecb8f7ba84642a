@@ -5,6 +5,5 @@ import org.crnts.ticketingservice.entity.TicketRaiserEntity;
 public interface TicketRaiserService {
 	
 	void save(TicketRaiserEntity ticketRaiserEntity);
-	
-	
+
 }

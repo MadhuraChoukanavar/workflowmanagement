@@ -49,14 +49,6 @@ INDEX VERSION 1.134+C:\Users\HP\OneDrive\Desktop\Project\javacode\WorkFlowManage
 3166276914.index
 3981510443.index
 2205804690.index
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-3522929811.index
-=======
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
-3588749813.index
->>>>>>> master
 2601431508.index
 3588749813.index
 30705239.index
