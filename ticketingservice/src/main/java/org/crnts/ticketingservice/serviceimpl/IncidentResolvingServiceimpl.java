@@ -102,6 +102,19 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 	@Override
 	public void updatePriority(int newpriority, long incidentId) {
 		Optional<IncidentResolvingEntity> optionalEntity = incidentResolvingRepository.findById(incidentId);
+<<<<<<< HEAD
+
+		if (optionalEntity.isPresent()) {
+
+			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
+<<<<<<< HEAD
+			// incidentResolvingEntity.setPriorityEntity(newpriority);
+
+=======
+
+			
+>>>>>>> master
+=======
 
 		if (optionalEntity.isPresent()) {
 
@@ -109,6 +122,7 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 			// incidentResolvingEntity.setPriorityEntity(newpriority);
 
 
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 			incidentResolvingRepository.save(incidentResolvingEntity);
 
 		} else {

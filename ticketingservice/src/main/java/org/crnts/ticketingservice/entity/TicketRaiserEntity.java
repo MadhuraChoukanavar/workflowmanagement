@@ -22,6 +22,15 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+<<<<<<< HEAD
+@Entity
+@Setter
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+=======
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 @Table(name = "incident_details")
 public class TicketRaiserEntity {
 
@@ -47,4 +56,10 @@ public class TicketRaiserEntity {
 	
 	
 
+<<<<<<< HEAD
+	
+	
+	
+=======
+>>>>>>> master
 }

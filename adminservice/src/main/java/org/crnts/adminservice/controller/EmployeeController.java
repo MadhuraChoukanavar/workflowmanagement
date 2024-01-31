@@ -11,9 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import org.springframework.web.bind.annotation.PatchMapping;
+=======
+>>>>>>> master
+=======
 
 import org.springframework.web.bind.annotation.PatchMapping;
 
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,7 +57,11 @@ public class EmployeeController {
 	
 	@GetMapping(path = "/getEmployee/{id}")
 	public ResponseEntity<EmployeeEntity> getEmployeeById(@PathVariable Long id) {
+<<<<<<< HEAD
+		EmployeeEntity byId = service.getById(id);
+=======
 		EmployeeEntity byId = employeeService.getById(id);
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 		log.info("Employee Fetched"+byId.toString());
 		return new ResponseEntity<>(byId, HttpStatus.OK);
 	}

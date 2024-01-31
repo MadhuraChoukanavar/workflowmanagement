@@ -32,9 +32,34 @@ public class StatusEntity {
 	
 	
     
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	public StatusEntity() {
+		super();
+		
+	}
+=======
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 
 	
 
 
+<<<<<<< HEAD
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
+	}
+
+	public String getStatusName() {
+		return statusName;
+	}
+
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+>>>>>>> master
+	
+=======
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 
 }
