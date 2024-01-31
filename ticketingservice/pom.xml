@@ -51,6 +51,11 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.2.5.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.crnts</groupId>
+			<artifactId>adminservice</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

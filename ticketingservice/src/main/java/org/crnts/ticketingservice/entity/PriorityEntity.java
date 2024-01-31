@@ -34,30 +34,44 @@ public class PriorityEntity {
 	  @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	   @Column(name="resolution_time")
 	private String resolutionTime;
-//
-//	public int getPriorityId() {
-//		return priorityId;
-//	}
-//
-//	public void setPriorityId(int priorityId) {
-//		this.priorityId = priorityId;
-//	}
-//
-//	public String getPriorityName() {
-//		return priorityName;
-//	}
-//
-//	public void setPriorityName(String priorityName) {
-//		this.priorityName = priorityName;
-//	}
-//
-//	public String getResponseTime() {
-//		return resolutionTime;
-//	}
-//
-//	public void setResponseTime(String resolutionTime) {
-//		this.resolutionTime = resolutionTime;
-//	}
+
+	public int getPriorityId() {
+		return priorityId;
+	}
+
+	public void setPriorityId(int priorityId) {
+		this.priorityId = priorityId;
+	}
+
+	public String getPriorityName() {
+		return priorityName;
+	}
+
+	public void setPriorityName(String priorityName) {
+		this.priorityName = priorityName;
+	}
+
+	public String getResponseTime() {
+		return resolutionTime;
+	}
+
+	public void setResponseTime(String resolutionTime) {
+		this.resolutionTime = resolutionTime;
+	}
+
+	public PriorityEntity(int priorityId, String priorityName, String resolutionTime) {
+		super();
+		this.priorityId = priorityId;
+		this.priorityName = priorityName;
+		this.resolutionTime = resolutionTime;
+	}
+
+	public PriorityEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	  
 
 }

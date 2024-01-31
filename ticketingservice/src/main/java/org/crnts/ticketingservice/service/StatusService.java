@@ -7,7 +7,7 @@ public interface StatusService {
 
 	void save(StatusEntity statusEntity);
 
-	StatusEntity get(String statusCode);
+	StatusEntity findById(String statusCode);
 	
 	void update(StatusEntity statusEntity);
 

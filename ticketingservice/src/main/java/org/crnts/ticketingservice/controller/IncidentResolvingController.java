@@ -1,4 +1,4 @@
-package org.crnts.ticketingservice.controller;
+  package org.crnts.ticketingservice.controller;
 
 import org.crnts.ticketingservice.entity.IncidentResolvingEntity;
 import org.crnts.ticketingservice.repository.IncidentResolvingRepository;

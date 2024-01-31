@@ -1,10 +1,6 @@
-package org.crnts.adminservice.bean;
+package org.crnts.ticketingservice.bean;
 
-import lombok.Builder;
-
-@Builder
 public class EmployeeBean {
-
 	private Long employeeId;
 	private String employeeName;
 	private String employeeEmail;
@@ -74,5 +70,6 @@ public class EmployeeBean {
 		this.employeePassword = employeePassword;
 		this.employeeDesignation = employeeDesignation;
 	}
+
 
 }
