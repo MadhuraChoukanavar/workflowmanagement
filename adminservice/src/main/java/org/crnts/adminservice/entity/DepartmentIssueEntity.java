@@ -21,13 +21,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-@Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+@Setter
 @Entity
 @Table(name = "department_issue_types")
 public class DepartmentIssueEntity {
@@ -40,7 +37,12 @@ public class DepartmentIssueEntity {
 
 	@Column(name = "department_id")
 	private long departmentId;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+	
+>>>>>>> master
 //	@ManyToOne(targetEntity =DepartmentEntity.class)
 //	@JoinColumn(name = "departmentId")
 //	@JsonBackReference("departmentId")
@@ -48,4 +50,15 @@ public class DepartmentIssueEntity {
 
 	
 
+<<<<<<< HEAD
+=======
+	
+
+
+	
+
+	
+=======
+>>>>>>> master
+>>>>>>> master
 }

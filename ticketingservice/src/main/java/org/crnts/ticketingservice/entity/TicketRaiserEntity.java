@@ -1,24 +1,36 @@
 package org.crnts.ticketingservice.entity;
 
 import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-@Setter
+@Entity
+@ToString
+@Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+<<<<<<< HEAD
 @Entity
+@Setter
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+=======
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 @Table(name = "incident_details")
 public class TicketRaiserEntity {
 
@@ -43,8 +55,11 @@ public class TicketRaiserEntity {
 	private String statusCode;
 	
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "status_code", referencedColumnName = "status_code")
-//	private StatusEntity statusEntity;
 
+<<<<<<< HEAD
+	
+	
+	
+=======
+>>>>>>> master
 }
