@@ -41,6 +41,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
+
+	public void saveEmployee(EmployeeEntity employeeEntity) {
+		repository.save(employeeEntity);
+		//log.info("Employee Saved : ", employeeEntity);
+
 	public void updateEmplyeeDetails(EmployeeEntity updatedEmployee, Long id) {
 		EmployeeEntity existingEmployee = employeeRepository.findById(id)
 				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
@@ -51,6 +56,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		existingEmployee.setEmployeePassword(updatedEmployee.getEmployeePassword());
 		existingEmployee.setEmployeePhonenumber(updatedEmployee.getEmployeePhonenumber());
 		employeeRepository.save(existingEmployee);
+
 	}
 
 	@Override

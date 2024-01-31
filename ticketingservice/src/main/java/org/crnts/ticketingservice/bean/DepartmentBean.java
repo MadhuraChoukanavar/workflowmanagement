@@ -1,18 +1,11 @@
-package org.crnts.adminservice.bean;
+package org.crnts.ticketingservice.bean;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.Entity;
 
-
-@Getter
-@Setter
-@ToString
 
 public class DepartmentBean {
 	private long departmentId;
 	private String departmentName;
-
 
 	public long getDepartmentId() {
 		return departmentId;
@@ -35,6 +28,17 @@ public class DepartmentBean {
 		return "DepartmentBean [departmentId=" + departmentId + ", departmentName=" + departmentName + "]";
 	}
 
-  
+	public DepartmentBean(long departmentId, String departmentName) {
+		super();
+		this.departmentId = departmentId;
+		this.departmentName = departmentName;
+	}
+
+	public DepartmentBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
 
 }

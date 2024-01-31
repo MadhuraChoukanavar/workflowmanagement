@@ -1,5 +1,9 @@
 package org.crnts.adminservice.bean;
 
+
+public class DepartmentIssueBean {
+
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,4 +17,5 @@ public class DepartmentIssueBean {
 	private long departmentId;
 	
 	
+
 }

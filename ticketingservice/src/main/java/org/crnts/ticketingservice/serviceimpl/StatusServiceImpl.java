@@ -5,6 +5,7 @@
 import java.util.Optional;
 
 import org.crnts.ticketingservice.entity.IncidentResolvingEntity;
+import org.crnts.ticketingservice.entity.PriorityEntity;
 import org.crnts.ticketingservice.entity.StatusEntity;
 import org.crnts.ticketingservice.exception.StatusAlreadyExistException;
 //import org.crnts.ticketingservice.exceptions.StatusSaveException;
@@ -26,25 +27,39 @@ public class StatusServiceImpl implements StatusService {
 
 	}
 	@Override
-	public StatusEntity get(String statusCode) {
+	public StatusEntity findById(String statusCode) {
 		return statusRepository.findById(statusCode).get();
 	}
 
 	@Override
 	public void update(StatusEntity statusEntity) {
-		Optional<StatusEntity>optional=statusRepository.findById(statusEntity.getStatusCode());
-		if(optional.isPresent()) {
-			
-			StatusEntity statusEntity1 = optional.get();
-			statusRepository.save(statusEntity);
-			System.out.println("update successfull");
-		}
-		else {
-			   throw new StatusAlreadyExistException("Status code already exists");
-		}
+//		Optional<StatusEntity>optional=statusRepository.findById(statusEntity.getStatusCode());
+//		if(optional.isPresent()) {
+//			StatusEntity statusEntity1 = optional.get();
+//			statusRepository.save(statusEntity);
+//			System.out.println("update successfull");
+//
+//			
+//			
+//			 
+//		}
+//		else {
+//			throw new StatusAlreadyExistException("Status code already exists");
+//			
+//					}
+//		
+//			
+//		}
+		
+		statusRepository.save(statusEntity);
+		
+	}	  
 		
 	}
+	
 
 	
 
-}
+	
+
+

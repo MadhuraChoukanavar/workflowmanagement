@@ -7,15 +7,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
-//@Builder
-@ToString
 public class StatusBean {
 
 	private String statusCode;
 	private String statusName;
+	public String getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
+	}
+	public String getStatusName() {
+		return statusName;
+	}
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+	
+	
 
 }

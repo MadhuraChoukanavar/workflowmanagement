@@ -1,11 +1,15 @@
 package org.crnts.ticketingservice.bean;
 
+
+public class EmployeeBean {
+
 import jakarta.validation.Valid;
 import lombok.Builder;
 
 @Builder
 public class EmployeeBean {
 	
+
 	private Long employeeId;
 	private String employeeName;
 	private String employeeEmail;
@@ -25,7 +29,7 @@ public class EmployeeBean {
 
 	public String getEmployeeName() {
 		return employeeName;
-	}
+
 
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
@@ -62,7 +66,7 @@ public class EmployeeBean {
 	public void setEmployeeDesignation(String employeeDesignation) {
 		this.employeeDesignation = employeeDesignation;
 	}
-	
+
 	public EmployeeBean() {
 	}
 
@@ -76,4 +80,5 @@ public class EmployeeBean {
 		this.employeePassword = employeePassword;
 		this.employeeDesignation = employeeDesignation;
 	}
+
 }

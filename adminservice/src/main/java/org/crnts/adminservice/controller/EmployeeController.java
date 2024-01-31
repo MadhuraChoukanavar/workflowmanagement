@@ -37,18 +37,30 @@ public class EmployeeController {
 	private DepartmentService departmentService;
 	
 	@PostMapping("/saveEmployee")
+
+	public ResponseEntity<EmployeeEntity> saveEmployee(@RequestBody EmployeeEntity employeeEntity) {
+		//log.info("Saving Employee: {}", employeeEntity);
+		service.saveEmployee(employeeEntity);
+		return new ResponseEntity<>(employeeEntity, HttpStatus.CREATED);
+
 		public ResponseEntity<EmployeeEntity> saveEmployee(@RequestBody EmployeeBean employeeBean) {
 		log.info("Saving Employee: {}", employeeBean);
 		
         EmployeeEntity savedEmployeeEntity = employeeService.saveEmployee(employeeBean);
         return new ResponseEntity<>(savedEmployeeEntity, HttpStatus.CREATED);
+
 	}
 	
 	@PostMapping(path = "/updateEmployee/{id}")
 	public ResponseEntity<EmployeeEntity> update(@RequestBody EmployeeEntity employeeEntity, @PathVariable Long id) {
 
+		service.updateEmplyeeDetails(employeeEntity, id);
+		//log.info("Employee Updated");
+
+
 		employeeService.updateEmplyeeDetails(employeeEntity, id);
 		log.info("Employee Updated");
+
 		return new ResponseEntity<>(employeeEntity, HttpStatus.OK);
 	}
 	
