@@ -51,7 +51,7 @@ try {
 catch (Exception e) {
    
    System.out.println(e.getMessage());
-   return new  ResponseEntity<>(HttpStatus.FOUND);
+   return new  ResponseEntity<>(HttpStatus.NOT_FOUND);
 }
 	}
 
@@ -60,7 +60,7 @@ catch (Exception e) {
 	@GetMapping("/getAll")
 	public ResponseEntity<List<DepartmentIssueEntity>> getAll() {
 		List<DepartmentIssueEntity> departmentIssueEntities = issueService.getAll();
-//	log.info("Fetching department_details {}", departmentEntity);
+	log.info("Fetching department_details {}", departmentIssueEntities);
 		System.out.println("Fetching department_details { " + departmentIssueEntities + " }");
 		ResponseEntity<List<DepartmentIssueEntity>> responseEntity = new ResponseEntity<List<DepartmentIssueEntity>>(
 				departmentIssueEntities, HttpStatus.OK);
@@ -70,8 +70,8 @@ catch (Exception e) {
 
 	@GetMapping("/getById/{id}")
 	public ResponseEntity<DepartmentIssueEntity> getById(@PathVariable Long id) {
-//	log.info("Fetching patient {}", id);
-		System.out.println("Fetching departmentIssue {" + id + "}");
+	log.info("Fetching DepartmentIssueEntity {}", id);
+//		System.out.println("Fetching departmentIssue {" + id + "}");
 		DepartmentIssueEntity departmentIssueEntity = issueService.findById(id);
 
 		ResponseEntity<DepartmentIssueEntity> responseEntity = new ResponseEntity<>(departmentIssueEntity,
@@ -81,7 +81,7 @@ catch (Exception e) {
 
 	@DeleteMapping("/deleteAll")
 	public ResponseEntity<DepartmentIssueEntity> deleteAll(DepartmentIssueEntity departmentIssueEntity) {
-//	log.info("Fetching patient {}", id);
+	log.info("Fetching DepartmentIssueEntity {}", departmentIssueEntity);
 		issueService.deleteAll();
 
 		ResponseEntity<DepartmentIssueEntity> responseEntity = new ResponseEntity<>(departmentIssueEntity,
