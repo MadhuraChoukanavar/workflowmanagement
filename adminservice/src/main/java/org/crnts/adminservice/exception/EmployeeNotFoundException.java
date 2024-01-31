@@ -1,12 +1,12 @@
 package org.crnts.adminservice.exception;
 
-public class EmployeeNotFoundException extends RuntimeException{
+public class EmployeeNotFoundException extends RuntimeException {
 
 	public EmployeeNotFoundException(String message) {
-        super(message);
-    }
+		super(message);
+	}
 
-    public EmployeeNotFoundException(String message, Throwable cause) {
-        super(message, cause);
-    }
+	public EmployeeNotFoundException(String message, Throwable cause) {
+		super(message, cause);
+	}
 }

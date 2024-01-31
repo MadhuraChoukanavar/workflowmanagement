@@ -29,13 +29,19 @@ public class DepartmentServiceImp implements DepartmentService {
 	}
 
 	@Override
+
 	public DepartmentEntity get(Long departmentId) {
+
+
+	public DepartmentEntity getDepartmentById(Long departmentId) {
 
 		return departmentRepository.findById(departmentId).get();
 	}
 
 	@Override
 	public List<DepartmentEntity> getAll() {
+
+
 
 		return departmentRepository.findAll();
 	}

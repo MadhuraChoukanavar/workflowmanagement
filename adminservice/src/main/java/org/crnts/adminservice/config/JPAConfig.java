@@ -9,6 +9,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = { "org.crnts.adminservice" })
 @EnableTransactionManagement
 public class JPAConfig {
-	
+
 
 }
+
+
+}
+
+

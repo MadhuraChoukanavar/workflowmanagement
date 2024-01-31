@@ -1,0 +1,14 @@
+package org.crnts.ticketingservice.repository;
+
+import java.util.Optional;
+
+import org.crnts.ticketingservice.entity.IncidentResolvingEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface IncidentResolvingRepository extends JpaRepository<IncidentResolvingEntity, Long> {
+
+	Optional<IncidentResolvingEntity> findById(String statusCode);
+	
+	
+}

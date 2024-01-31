@@ -1,7 +1,14 @@
 package org.crnts.adminservice.serviceimpl;
 
+import java.util.List;
+
+import org.crnts.adminservice.bean.DepartmentBean;
 import org.crnts.adminservice.bean.EmployeeBean;
+
 import org.crnts.adminservice.controller.EmployeeController;
+
+import org.crnts.adminservice.entity.DepartmentEntity;
+
 import org.crnts.adminservice.entity.EmployeeEntity;
 import org.crnts.adminservice.exception.EmployeeNotFoundException;
 import org.crnts.adminservice.repository.EmployeeRepository;
@@ -19,20 +26,48 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private static Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
 	@Autowired(required = true)
-	private EmployeeRepository repository;
+	private EmployeeRepository employeeRepository;
 
 	@Override
 	public EmployeeEntity getById(Long id) {
-		return repository.findById(id).orElse(null);
+		return employeeRepository.findById(id).orElse(null);
 	}
 
 	@Override
+	
+
+	public EmployeeEntity saveEmployee(EmployeeBean employeeBean) {
+		
+		// Convert EmployeeBean to EmployeeEntity
+        EmployeeEntity employeeEntity = beanToEntity(employeeBean);
+
+        // Save the EmployeeEntity
+        employeeEntity = employeeRepository.save(employeeEntity);
+
+        return employeeEntity;
+	}
+
+	@Override
+
 	public void saveEmployee(EmployeeEntity employeeEntity) {
 		repository.save(employeeEntity);
-		log.info("Employee Saved : ", employeeEntity);
+		//log.info("Employee Saved : ", employeeEntity);
+
+	public void updateEmplyeeDetails(EmployeeEntity updatedEmployee, Long id) {
+		EmployeeEntity existingEmployee = employeeRepository.findById(id)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
+
+		existingEmployee.setEmployeeName(updatedEmployee.getEmployeeName());
+		existingEmployee.setEmployeeEmail(updatedEmployee.getEmployeeEmail());
+		existingEmployee.setEmployeeDesignation(updatedEmployee.getEmployeeDesignation());
+		existingEmployee.setEmployeePassword(updatedEmployee.getEmployeePassword());
+		existingEmployee.setEmployeePhonenumber(updatedEmployee.getEmployeePhonenumber());
+		employeeRepository.save(existingEmployee);
+
 	}
 
 	@Override
+
 	public void updateEmplyeeDetails(EmployeeEntity updatedEmployee, Long id) {
 		EmployeeEntity existingEmployee = repository.findById(id)
 				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
@@ -43,6 +78,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		existingEmployee.setEmployeePassword(updatedEmployee.getEmployeePassword());
 		existingEmployee.setEmployeePhonenumber(updatedEmployee.getEmployeePhonenumber());
 		repository.save(existingEmployee);
+
+	public List<EmployeeEntity> getEmployeesByDepartment(DepartmentEntity department) {
+		return employeeRepository.findByEmployeeDepartmentId(department);
+
 	}
 
 	// conversion entity to bean and visa versa
@@ -54,6 +93,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeBean.setEmployeeEmail(entity.getEmployeeEmail());
 		employeeBean.setEmployeePassword(entity.getEmployeePassword());
 		employeeBean.setEmployeePhonenumber(entity.getEmployeePhonenumber());
+		employeeBean.setEmployeeDesignation(entity.getEmployeeDesignation());
+		
+		// Mapping DepartmentEntity to DepartmentBean
+	    DepartmentEntity departmentEntity = entity.getEmployeeDepartmentId();
+	    DepartmentBean departmentBean = new DepartmentBean();
+	    departmentBean.setDepartmentId(departmentEntity.getDepartmentId());
+	    // Set the DepartmentBean in EmployeeBean
+	    employeeBean.setEmployeeDepartmentId(departmentBean);
+	    
 		return employeeBean;
 	}
 
@@ -65,7 +113,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 		entity.setEmployeeEmail(employeeBean.getEmployeeEmail());
 		entity.setEmployeePassword(employeeBean.getEmployeePassword());
 		entity.setEmployeePhonenumber(employeeBean.getEmployeePhonenumber());
+		// Assuming you have a DepartmentBean to DepartmentEntity conversion method
+	    DepartmentEntity departmentEntity = convertToEntity(employeeBean.getEmployeeDepartmentId());
+	    entity.setEmployeeDepartmentId(departmentEntity);
 		return entity;
+	}
+	
+	private DepartmentEntity convertToEntity(DepartmentBean departmentBean) {
+	    // Your DepartmentBean to DepartmentEntity conversion logic
+	    DepartmentEntity departmentEntity = new DepartmentEntity();
+	    departmentEntity.setDepartmentId(departmentBean.getDepartmentId());
+	    departmentEntity.setDepartmentName(departmentBean.getDepartmentName());
+
+	    return departmentEntity;
 	}
 
 }

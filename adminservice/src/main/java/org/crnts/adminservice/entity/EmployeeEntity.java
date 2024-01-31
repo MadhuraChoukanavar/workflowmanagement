@@ -1,10 +1,14 @@
 package org.crnts.adminservice.entity;
 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,6 +26,8 @@ import lombok.ToString;
 @Setter
 @Getter
 @Entity
+@Getter
+@Setter
 @Table(name="employee_details")
 public class EmployeeEntity {
 	
@@ -38,8 +45,9 @@ public class EmployeeEntity {
 	@Column(name="employee_phno")
 	private Long employeePhonenumber;
 	
-//	@Column(name="employee_name")
-//	private Department departmentId;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "department_id")
+	private DepartmentEntity employeeDepartmentId;
 	
 	@Column(name="employee_password")
 	private String employeePassword;
