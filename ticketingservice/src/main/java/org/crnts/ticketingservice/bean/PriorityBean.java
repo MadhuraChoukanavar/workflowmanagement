@@ -18,4 +18,5 @@ public class PriorityBean {
 	private String priorityName;
 	private String resolutionTime;
 
+
 }

@@ -1,5 +1,9 @@
 package org.crnts.ticketingservice.entity;
 
+import org.crnts.ticketingservice.bean.DepartmentBean;
+import org.crnts.ticketingservice.bean.DepartmentIssueBean;
+import org.crnts.ticketingservice.bean.EmployeeBean;
+
 import jakarta.persistence.CascadeType;
 
 import jakarta.persistence.Column;
@@ -7,6 +11,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,22 +24,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@ToString
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-<<<<<<< HEAD
-@Entity
+
+
 @Setter
 @Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-=======
->>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
+@Entity
 @Table(name = "incident_details")
 public class TicketRaiserEntity {
 
@@ -45,21 +46,27 @@ public class TicketRaiserEntity {
 	@Column(name = "resolver_department_id")
 	private long resolverDepartmentId;
 
-	@Column(name = "issue_type_id")
+	@Column(name = "issue_type_id ")
 	private long issueTypeId;
 
-	@Column(name = "priority_id")
-	private int priorityId;
+	@OneToOne
+	@JoinColumn(name = "priority_id", referencedColumnName = "priority_id")
+	private PriorityEntity priorityEntity;
 
-	@Column(name = "status_code")
-	private String statusCode;
-	
+	@OneToOne
+	@JoinColumn(name = "status_code", referencedColumnName = "status_code")
+	private StatusEntity statusEntity;
+
+	@ManyToOne
+	@JoinColumn(name = "comment_id", referencedColumnName = "comment_id")
+	private  CommentsOnIssues commentsOnIssues;
+
+
+
 	
 
-<<<<<<< HEAD
 	
-	
-	
-=======
->>>>>>> master
+
+
+
 }

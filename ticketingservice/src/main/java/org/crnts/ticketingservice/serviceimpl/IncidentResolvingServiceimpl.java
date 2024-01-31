@@ -107,6 +107,7 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 
 			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
 
+
 			// incidentResolvingEntity.setPriorityEntity(newpriority);
 
 
@@ -117,6 +118,17 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 
 
 			incidentResolvingRepository.save(incidentResolvingEntity1);
+
+
+		//	PriorityEntity priorityEntity = incidentResolvingEntity.getPriorityEntity();
+			
+
+			// incidentResolvingEntity.setPriorityEntity(newpriority);
+
+
+
+			incidentResolvingRepository.save(incidentResolvingEntity);
+
 
 		} else {
 			throw new IncidentNotFoundException("incident not found");
@@ -200,10 +212,16 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 		 List<IncidentResolvingEntity> openIncident = incidentResolvingRepository.getOpenIncident();
 		
 
+
 		List<IncidentResolvingBean> listOfBean = openIncident.stream()
 				.map((entity) -> modelMapper.map(entity, IncidentResolvingBean.class)).collect(Collectors.toList());
 		
 		return listOfBean;
+
+		List<IncidentResolvingBean> collect = openIncident.stream().
+				map((entity) -> modelMapper.map(entity, IncidentResolvingBean.class)).collect(Collectors.toList());
+		return collect;
+
 	}
 
 //	@Override

@@ -8,7 +8,6 @@ import org.crnts.adminservice.entity.DepartmentEntity;
 import org.crnts.adminservice.exception.DepartmentNotFoundException;
 import org.crnts.adminservice.repository.DepartmentRepository;
 import org.crnts.adminservice.service.DepartmentService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +29,20 @@ public class DepartmentServiceImp implements DepartmentService {
 	}
 
 	@Override
+
+	public DepartmentEntity get(Long departmentId) {
+
+
 	public DepartmentEntity getDepartmentById(Long departmentId) {
+
 		return departmentRepository.findById(departmentId).get();
 	}
 
 	@Override
 	public List<DepartmentEntity> getAll() {
+
+
+
 		return departmentRepository.findAll();
 	}
 

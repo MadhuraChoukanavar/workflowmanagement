@@ -17,13 +17,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Builder
+
+@Setter
+@Getter
 @Entity
+@Getter
+@Setter
 @Table(name="employee_details")
 public class EmployeeEntity {
 	
