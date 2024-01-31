@@ -3,6 +3,7 @@ package org.crnts.adminservice.serviceimpl;
 
 import java.util.List;
 
+import org.crnts.adminservice.entity.DepartmentEntity;
 import org.crnts.adminservice.entity.DepartmentIssueEntity;
 import org.crnts.adminservice.repository.DepartmentIssuRepository;
 import org.crnts.adminservice.service.DepartmentIssueService;
@@ -33,6 +34,7 @@ public void deleteAll() {
 	departmentIssuRepository.deleteAll();
 	System.out.println("delete all the data");
 }
+
 
 
 }

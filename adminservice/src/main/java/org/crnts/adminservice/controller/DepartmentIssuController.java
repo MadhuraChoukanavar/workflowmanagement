@@ -2,9 +2,7 @@ package org.crnts.adminservice.controller;
 
 import java.util.List;
 
-
-
-
+import org.crnts.adminservice.entity.DepartmentEntity;
 import org.crnts.adminservice.entity.DepartmentIssueEntity;
 import org.crnts.adminservice.service.DepartmentIssueService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +22,12 @@ import lombok.extern.slf4j.Slf4j;
 public class DepartmentIssuController {
 @Autowired
 private DepartmentIssueService issueService;
+
 @PostMapping("/save")
 public ResponseEntity<DepartmentIssueEntity> save(@RequestBody DepartmentIssueEntity departmentIssueEntity) {
-//	log.info("Saving patient {}", patient);
-
-	issueService.saveIssueType(departmentIssueEntity);
+	log.info("Saving department {}", departmentIssueEntity);
+		issueService.saveIssueType(departmentIssueEntity);
+		System.out.println(departmentIssueEntity);
 	ResponseEntity<DepartmentIssueEntity> responseEntity = new ResponseEntity<>(departmentIssueEntity,
 			HttpStatus.CREATED);
 	System.out.println("Data inserted");
@@ -36,10 +35,10 @@ public ResponseEntity<DepartmentIssueEntity> save(@RequestBody DepartmentIssueEn
 }
 @GetMapping("/getAll")
 public ResponseEntity<List<DepartmentIssueEntity>>getAll(){
-	List<DepartmentIssueEntity> departmentIssueEntities= issueService.getAll();
-//	log.info("Fetching department_details {}", departmentEntity);
-	System.out.println("Fetching department_details { "+departmentIssueEntities+" }");
-	ResponseEntity<List<DepartmentIssueEntity>> responseEntity = new ResponseEntity<List<DepartmentIssueEntity>>(departmentIssueEntities,
+	List<DepartmentIssueEntity> departmentIssueEntity= issueService.getAll();
+	log.info("Fetching department_details {}", departmentIssueEntity);
+	System.out.println("Fetching department_details { "+departmentIssueEntity+" }");
+	ResponseEntity<List<DepartmentIssueEntity>> responseEntity = new ResponseEntity<List<DepartmentIssueEntity>>(departmentIssueEntity,
 			HttpStatus.OK);
 	return responseEntity;
 
