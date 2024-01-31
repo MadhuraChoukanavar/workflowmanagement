@@ -23,6 +23,7 @@ import org.modelmapper.internal.bytebuddy.dynamic.loading.ClassReloadingStrategy
 import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -39,6 +40,10 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 
 	@Autowired
 	IncidentResolvingRepository incidentResolvingRepository;
+	
+	IncidentResolvingServiceimpl incidentResolvingServiceimpl;
+	
+	
 
 	@Autowired
 	ModelMapper modelMapper;
@@ -102,6 +107,19 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 
 			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
 
+
+			// incidentResolvingEntity.setPriorityEntity(newpriority);
+
+
+		if (optionalEntity.isPresent()) {
+
+			IncidentResolvingEntity incidentResolvingEntity1 = optionalEntity.get();
+			// incidentResolvingEntity.setPriorityEntity(newpriority);
+
+
+			incidentResolvingRepository.save(incidentResolvingEntity1);
+
+
 		//	PriorityEntity priorityEntity = incidentResolvingEntity.getPriorityEntity();
 			
 
@@ -111,8 +129,10 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 
 			incidentResolvingRepository.save(incidentResolvingEntity);
 
+
 		} else {
 			throw new IncidentNotFoundException("incident not found");
+		}
 		}
 
 	}
@@ -189,33 +209,85 @@ public class IncidentResolvingServiceimpl implements IncidentResolvingService {
 
 	@Override
 	public List<IncidentResolvingBean> getAllOpenEntity() {
-		List<IncidentResolvingEntity> openIncident = incidentResolvingRepository.getOpenIncident();
+		 List<IncidentResolvingEntity> openIncident = incidentResolvingRepository.getOpenIncident();
+		
+
+
+		List<IncidentResolvingBean> listOfBean = openIncident.stream()
+				.map((entity) -> modelMapper.map(entity, IncidentResolvingBean.class)).collect(Collectors.toList());
+		
+		return listOfBean;
 
 		List<IncidentResolvingBean> collect = openIncident.stream().
 				map((entity) -> modelMapper.map(entity, IncidentResolvingBean.class)).collect(Collectors.toList());
 		return collect;
+
 	}
 
 //	@Override
-//	public void updateStatusCode(String statusCode, long incidentId) {
-//		Optional<IncidentResolvingEntity> optionalEntity = incidentResolvingRepository.findById(incidentId);
-//
-//		if (optionalEntity.isPresent()) {
-//
-//			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
-//			incidentResolvingEntity.getStatusEntity().setStatusCode(statusCode); 
-//			if(statusCode=="o")
-//			{
-//				incidentResolvingEntity.setResponseTime(dtf.format(now));
-//			}
-//
-//			incidentResolvingRepository.save(incidentResolvingEntity);
-//			System.out.println(incidentResolvingEntity);
-//
-//		} else {
-//			throw new IncidentNotFoundException("incident not found");
-//		}
+//	public EmployeeBean autoAssignEmp(long id) {
 //		
-//	}
+//		
+//		List<EmployeeBean> empIncDetails = incidentResolvingServiceimpl.getEmpIncDetails(id);
+//		
+//		
+//		empIncDetails.stream().filter((emp)->"o".equalsIgnoreCase())
+//}
+
+	@Override
+	public List<EmployeeBean> getEmpIncDetails(long id) {
+		
+		
+		org.springframework.http.HttpHeaders httpHeaders = new org.springframework.http.HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<String> httpEntity = new HttpEntity<>(httpHeaders);
+
+		String url = "http://localhost:8081/api/employee/departmentEmployee/" +id ;
+		
+		ResponseEntity<List<EmployeeBean>> responseEntity = restTemplate.exchange(
+			    url,
+			    HttpMethod.GET,
+			    httpEntity,
+			    new ParameterizedTypeReference<List<EmployeeBean>>() {}
+			);
+
+	        List<EmployeeBean> employeeList = responseEntity.getBody();
+	        
+	        return employeeList;
+	        }
+	  
+	  
+	  
+		
+	
+	
+
+	@Override
+	public void updateStatusCode(String statusCode, long incidentId) {
+		Optional<IncidentResolvingEntity> optionalEntity = incidentResolvingRepository.findById(incidentId);
+
+		if (optionalEntity.isPresent()) {
+
+			IncidentResolvingEntity incidentResolvingEntity = optionalEntity.get();
+			incidentResolvingEntity.getStatusEntity().setStatusCode(statusCode); 
+			if(statusCode=="o")
+			{
+				incidentResolvingEntity.setResponseTime(dtf.format(now));
+			}
+
+			incidentResolvingRepository.save(incidentResolvingEntity);
+			System.out.println(incidentResolvingEntity);
+
+		} else {
+			throw new IncidentNotFoundException("incident not found");
+		}
+		
+	}
+	
+	
+	
+	
 
 }
+

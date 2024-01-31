@@ -3,6 +3,7 @@
 import java.util.List;
 import java.util.Optional;
 
+import org.crnts.ticketingservice.bean.EmployeeBean;
 import org.crnts.ticketingservice.bean.IncidentResolvingBean;
 
 import org.crnts.ticketingservice.entity.IncidentResolvingEntity;
@@ -78,11 +79,7 @@ public class IncidentResolvingController {
 
 	public ResponseEntity<Object> updatePriorty(@PathVariable int newpriority, @PathVariable long incidentId) {
 		try {
-			System.out.println(incidentId);
-
 			incidentResolvingService.updatePriority(newpriority, incidentId);
-
-			System.out.println(incidentId);
 			return new ResponseEntity<>(HttpStatus.OK);
 
 		} catch (Exception e) {
@@ -90,31 +87,26 @@ public class IncidentResolvingController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
-	@PostMapping(path = "/updateIncidentResloving/{incidentId}")
-	public ResponseEntity<Object> updateIncidentResolving() {
-		return null;
-
-	}
-
-//	@PostMapping(path = "/updatestatus/{newstatus}/{resolvingId}")
 //
-//	public ResponseEntity<Object> updateStatusCode(@PathVariable String newstatus, @PathVariable long resolvingId) {
-//		try {
-//			System.out.println(resolvingId);
-//			
-//			System.out.println(newstatus);
+//	@PostMapping(path = "/updateIncidentResloving/{incidentId}")
+//	public ResponseEntity<Object> updateIncidentResolving() {
+//		return null;
 //
-//			incidentResolvingService.updateStatusCode(newstatus, resolvingId);
-//
-//			System.out.println(resolvingId);
-//			return new ResponseEntity<>(HttpStatus.OK);
-//
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}
 //	}
+
+	@PostMapping(path = "/updatestatus/{newstatus}/{resolvingId}")
+
+	public ResponseEntity<Object> updateStatusCode(@PathVariable String newstatus, @PathVariable long resolvingId) {
+		try {
+
+			incidentResolvingService.updateStatusCode(newstatus, resolvingId);
+			return new ResponseEntity<>(HttpStatus.OK);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 	@PostMapping(path="/update")
 	public IncidentResolvingBean update (@RequestBody IncidentResolvingBean incidentResolvingBean)
@@ -126,12 +118,19 @@ public class IncidentResolvingController {
 		return incidentResolvingBean2;
 	}
 	
-	@GetMapping(path="getopenticket")
+	@GetMapping(path="/getopenticket")
 	public List<IncidentResolvingBean> getOpendeTickets() {
 		
 		List<IncidentResolvingBean> allOpenEntity = incidentResolvingService.getAllOpenEntity();
 		return allOpenEntity;
 		
 	}
-
+@GetMapping(path = "/getempdept/{id}")
+public List<EmployeeBean> getlistOfEmpInDept(@PathVariable long id)
+{
+	
+	List<EmployeeBean> empIncDetails = incidentResolvingService.getEmpIncDetails(id);
+	return empIncDetails;
+	}
+	
 }

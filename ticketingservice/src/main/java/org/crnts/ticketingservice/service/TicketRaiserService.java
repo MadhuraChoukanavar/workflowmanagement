@@ -6,9 +6,11 @@ import org.crnts.ticketingservice.entity.TicketRaiserEntity;
 
 
 public interface TicketRaiserService {
+
+	void save(TicketRaiserEntity ticketRaiserEntity);
+	
 	
 
 	public DepartmentBean getDepartmentBean(long id);
 	TicketRaiserEntity save(TicketRaiserBean ticketRaiserBean);
-
 }
