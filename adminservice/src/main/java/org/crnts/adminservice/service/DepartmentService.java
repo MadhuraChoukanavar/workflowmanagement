@@ -5,13 +5,14 @@ import java.util.List;
 import org.crnts.adminservice.entity.DepartmentEntity;
 
 public interface DepartmentService {
+	
 	void save(DepartmentEntity departmentEntity);
 
 	List<DepartmentEntity> getAll();
 
-	DepartmentEntity get(Long id);
+	DepartmentEntity getDepartmentById(Long id);
 	
-
 	void update(DepartmentEntity departmentEntity );
+	
 	DepartmentEntity delete(Long departmentId);
 }

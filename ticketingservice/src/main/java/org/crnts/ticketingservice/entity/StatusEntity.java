@@ -7,11 +7,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
 @Table(name = "status_details")
 public class StatusEntity {
 	@Id
@@ -24,23 +32,20 @@ public class StatusEntity {
 	
 	
     
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 	public StatusEntity() {
 		super();
 		
 	}
+=======
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 
-
-	public StatusEntity(String statusCode, String statusName) {
-		super();
-		this.statusCode = statusCode;
-		this.statusName = statusName;
-	}
 	
 
-	public String getStatusCode() {
-		return statusCode;
-	}
 
+<<<<<<< HEAD
 	public void setStatusCode(String statusCode) {
 		this.statusCode = statusCode;
 	}
@@ -52,6 +57,9 @@ public class StatusEntity {
 	public void setStatusName(String statusName) {
 		this.statusName = statusName;
 	}
+>>>>>>> master
 	
+=======
+>>>>>>> 61ce05bf8ead2e048ff3b007c582699371c8696d
 
 }

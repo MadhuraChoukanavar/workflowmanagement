@@ -6,10 +6,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 
-@EnableJpaRepositories(basePackages = { "org.crnts.adminservice.bean","org.crnts.adminservice.repository" })
+@EnableJpaRepositories(basePackages = { "org.crnts.adminservice" })
 @EnableTransactionManagement
 public class JPAConfig {
-	
-
 
 }
+

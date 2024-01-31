@@ -4,9 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+
+@Getter
+@Setter
+@ToString
+
 public class DepartmentBean {
 	private long departmentId;
 	private String departmentName;
+
 
 	public long getDepartmentId() {
 		return departmentId;
@@ -28,5 +34,7 @@ public class DepartmentBean {
 	public String toString() {
 		return "DepartmentBean [departmentId=" + departmentId + ", departmentName=" + departmentName + "]";
 	}
+
+  
 
 }
